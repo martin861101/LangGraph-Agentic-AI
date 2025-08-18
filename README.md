@@ -65,6 +65,54 @@ graph TD
                       ...
         (additional agents plugged into LangGraph)
 
+graph LR
+    %% Clients
+    A[Frontend\n(React)] -->|WebSocket| B
+    API[API Layer\n(FastAPI)] -->|REST/WS| B
+
+    %% Orchestrator
+    B[Orchestrator\n(LangGraph)]
+
+    %% Agents Cluster
+    subgraph Agents["Agent Network"]
+        direction TB
+        C[ChartAnalyst\nLLMs + Chart Data]
+        D[RiskManager\nRisk Logic]
+        E[MarketSentinel\nNews Scanner]
+        F[MacroForecaster\nMacro & Bias]
+        G[TacticBot\nEntry/Exit Logic]
+        H[PlatformPilot\nExecution & Logs]
+    end
+
+    %% Data Services
+    I[(PostgreSQL Database)]
+    J[[Redis Pub/Sub]]
+    K[Live Dashboard\n(WebSocket)]
+
+    %% Connections
+    B --> C
+    B --> D
+    B --> E
+    B --> F
+    B --> G
+    B --> H
+    B --> I
+    B --> J
+    B --> K
+
+    %% Styling
+    classDef client fill:#d4e6ff,stroke:#3a7bd5;
+    classDef orchestrator fill:#c2f0c2,stroke:#28a745;
+    classDef agent fill:#ffebcc,stroke:#ff9800;
+    classDef storage fill:#f0e6ff,stroke:#9c27b0;
+    classDef output fill:#ffe6e6,stroke:#f44336;
+
+    class A,API client;
+    class B orchestrator;
+    class C,D,E,F,G,H agent;
+    class I,J storage;
+    class K output;
+
 ```
 
 ---
