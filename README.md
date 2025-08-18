@@ -97,7 +97,7 @@ Each agent lives in `backend/agents/<agent_name>/`, and uses:
 
 
 ## 🔗 Event Bus Flow
-![Alt Text](index.jpg)
+![Alt Text](file_00000000926861f7802722f01d5581d0.png)
 
 - All agent communication is via Redis Pub/Sub (or Kafka).
 - New market event → bus → specialist agents consume → output signals → bus → downstream agents consume (event loop).
