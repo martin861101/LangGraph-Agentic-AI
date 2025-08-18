@@ -66,6 +66,13 @@ graph TD
         (additional agents plugged into LangGraph)
 
 graph LR
+
+
+```
+---
+
+```mermaid
+graph LR
     %% Clients
     A[Frontend\n(React)] -->|WebSocket| B
     API[API Layer\n(FastAPI)] -->|REST/WS| B
@@ -112,9 +119,6 @@ graph LR
     class C,D,E,F,G,H agent;
     class I,J storage;
     class K output;
-
-```
-
 ---
 
 ### 🧠 Agents Overview
