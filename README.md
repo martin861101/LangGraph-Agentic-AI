@@ -45,7 +45,7 @@ graph TD
 
 ### ⚙️ Architecture Overview
 
-![Alt Text](index.jpg).
+![Alt Text](image_1755557381880.jpeg).
 ---
 
 
