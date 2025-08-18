@@ -1,5 +1,5 @@
 ### 📈 Agentic AI Trading Agents (LangGraph Orchestrated)
-![Alt Text](indexjpeg).
+![Alt Text](index(1).png).
 This project implements an **Agentic AI stock trading system**, built with a modular multi-agent architecture orchestrated using [LangGraph](https://github.com/langchain-ai/langgraph). Each agent contributes specialized reasoning using LLMs such as **Mistral**, **LLaMA**, and APIs like **Tavily** or **Selenium** for real-world visibility.
 
 ---
