@@ -1,5 +1,5 @@
 ### 📈 Agentic AI Trading Agents (LangGraph Orchestrated)
-![Alt Text](index.jpg)
+![Alt Text](copilot_image_1754130941070.jpeg).
 This project implements an **Agentic AI stock trading system**, built with a modular multi-agent architecture orchestrated using [LangGraph](https://github.com/langchain-ai/langgraph). Each agent contributes specialized reasoning using LLMs such as **Mistral**, **LLaMA**, and APIs like **Tavily** or **Selenium** for real-world visibility.
 
 ---
@@ -97,7 +97,6 @@ Each agent lives in `backend/agents/<agent_name>/`, and uses:
 
 
 ## 🔗 Event Bus Flow
-![Alt Text](file_00000000926861f7802722f01d5581d0.png)
 
 - All agent communication is via Redis Pub/Sub (or Kafka).
 - New market event → bus → specialist agents consume → output signals → bus → downstream agents consume (event loop).
@@ -259,4 +258,9 @@ Built by [martin861101](https://github.com/martin861101) and contributors.
       service and retrieve relevant information.
    6. Configure API keys: The .env files need to be populated with valid API keys for OpenRouter, Tavily, and any other external services used by the agents.
    7. Database setup: Ensure that the PostgreSQL (or TimescaleDB) database is properly configured and that the agent services can connect to it to persist signals and outcomes.
-# LangGraph-Agentic-AI
+
+
+
+
+
+
