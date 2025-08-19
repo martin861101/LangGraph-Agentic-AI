@@ -19,7 +19,7 @@ This project implements an **Agentic AI stock trading system**, built with a mod
 
 ## 🏗️ Process Architecture
 
-
+```mermaid
 graph TD
     A[Market Event/Price Tick] --> B[ChartAnalyst]
     A --> C[MarketSentinel]
@@ -34,7 +34,7 @@ graph TD
 ```
 ---
 ## MCP Setup
-```mermaid
+
 graph TD
 ┌─────────────────────────────────────────────────────────────┐
 │                    MCP SCHEDULER                            │
