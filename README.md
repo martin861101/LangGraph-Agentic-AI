@@ -34,7 +34,8 @@ graph TD
 ```
 ---
 ## MCP Setup
-
+```mermaid
+graph TD
 ┌─────────────────────────────────────────────────────────────┐
 │                    MCP SCHEDULER                            │
 │                 (Master Orchestrator)                       │
@@ -61,6 +62,8 @@ graph TD
 │  │   (Docker)      │  │   (Docker)      │  │  (Docker)    │ │
 │  └─────────────────┘  └─────────────────┘  └──────────────┘ │
 └─────────────────────────────────────────────────────────────┘
+...
+---
 
 **Flow:**  
 1. New market event → published to event bus  
