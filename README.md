@@ -32,7 +32,35 @@ graph TD
     G --> H[PostgreSQL DB]
     G --> I[Frontend Dashboard]
 ```
+---
+## MCP Setup
 
+┌─────────────────────────────────────────────────────────────┐
+│                    MCP SCHEDULER                            │
+│                 (Master Orchestrator)                       │
+│  • Task Scheduling                                          │
+│  • System Health Monitoring                                 │
+│  • Portfolio Management                                      │
+│  • Cross-Agent Communication                                │
+└─────────────────┬───────────────────────────────────────────┘
+                  │
+                  ├── Redis Pub/Sub & State Management
+                  │
+┌─────────────────┴───────────────────────────────────────────┐
+│                 INDIVIDUAL AGENTS                           │
+│                                                             │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌──────────────┐ │
+│  │   LangGraph     │  │  MarketSentinel │  │ ChartAnalyst │ │
+│  │Trading Workflow │  │     Agent       │  │    Agent     │ │
+│  │   (Docker)      │  │   (Docker)      │  │  (Docker)    │ │
+│  └─────────────────┘  └─────────────────┘  └──────────────┘ │
+│                                                             │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌──────────────┐ │
+│  │ MacroForecaster │  │   Data Fetcher  │  │   Other      │ │
+│  │     Agent       │  │     Agent       │  │   Agents     │ │
+│  │   (Docker)      │  │   (Docker)      │  │  (Docker)    │ │
+│  └─────────────────┘  └─────────────────┘  └──────────────┘ │
+└─────────────────────────────────────────────────────────────┘
 
 **Flow:**  
 1. New market event → published to event bus  
