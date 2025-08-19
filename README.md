@@ -32,38 +32,36 @@ graph TD
     G --> H[PostgreSQL DB]
     G --> I[Frontend Dashboard]
 ```
----
 ## MCP Setup
 
+```mermaid
 graph TD
-┌─────────────────────────────────────────────────────────────┐
-│                    MCP SCHEDULER                            │
-│                 (Master Orchestrator)                       │
-│  • Task Scheduling                                          │
-│  • System Health Monitoring                                 │
-│  • Portfolio Management                                      │
-│  • Cross-Agent Communication                                │
-└─────────────────┬───────────────────────────────────────────┘
-                  │
-                  ├── Redis Pub/Sub & State Management
-                  │
-┌─────────────────┴───────────────────────────────────────────┐
-│                 INDIVIDUAL AGENTS                           │
-│                                                             │
-│  ┌─────────────────┐  ┌─────────────────┐  ┌──────────────┐ │
-│  │   LangGraph     │  │  MarketSentinel │  │ ChartAnalyst │ │
-│  │Trading Workflow │  │     Agent       │  │    Agent     │ │
-│  │   (Docker)      │  │   (Docker)      │  │  (Docker)    │ │
-│  └─────────────────┘  └─────────────────┘  └──────────────┘ │
-│                                                             │
-│  ┌─────────────────┐  ┌─────────────────┐  ┌──────────────┐ │
-│  │ MacroForecaster │  │   Data Fetcher  │  │   Other      │ │
-│  │     Agent       │  │     Agent       │  │   Agents     │ │
-│  │   (Docker)      │  │   (Docker)      │  │  (Docker)    │ │
-│  └─────────────────┘  └─────────────────┘  └──────────────┘ │
-└─────────────────────────────────────────────────────────────┘
-...
----
+
+subgraph MCP_SCHEDULER [MCP Scheduler (Master Orchestrator)]
+    A1[Task Scheduling]
+    A2[System Health Monitoring]
+    A3[Portfolio Management]
+    A4[Cross-Agent Communication]
+end
+
+MCP_SCHEDULER --> R[Redis Pub/Sub & State Management]
+
+subgraph AGENTS [Individual Agents]
+    subgraph Row1 [ ]
+        L[LangGraph Trading Workflow<br>(Docker)]
+        M[MarketSentinel Agent<br>(Docker)]
+        C[ChartAnalyst Agent<br>(Docker)]
+    end
+    
+    subgraph Row2 [ ]
+        F[MacroForecaster Agent<br>(Docker)]
+        D[Data Fetcher Agent<br>(Docker)]
+        O[Other Agents<br>(Docker)]
+    end
+end
+
+R --> AGENTS
+
 
 **Flow:**  
 1. New market event → published to event bus  
